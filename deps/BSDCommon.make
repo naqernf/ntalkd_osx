@@ -4,14 +4,14 @@
 # Copyright (c) 2007 Apple Inc.  All rights reserved.
 #
 # @APPLE_LICENSE_HEADER_START@
-# 
+#
 # This file contains Original Code and/or Modifications of Original Code
 # as defined in and that are subject to the Apple Public Source License
 # Version 2.0 (the 'License'). You may not use this file except in
 # compliance with the License. Please obtain a copy of the License at
 # http://www.opensource.apple.com/apsl/ and read it before using this
 # file.
-# 
+#
 # The Original Code and all software distributed under the License are
 # distributed on an 'AS IS' basis, WITHOUT WARRANTY OF ANY KIND, EITHER
 # EXPRESS OR IMPLIED, AND APPLE HEREBY DISCLAIMS ALL SUCH WARRANTIES,
@@ -19,7 +19,7 @@
 # FITNESS FOR A PARTICULAR PURPOSE, QUIET ENJOYMENT OR NON-INFRINGEMENT.
 # Please see the License for the specific language governing rights and
 # limitations under the License.
-# 
+#
 # @APPLE_LICENSE_HEADER_END@
 ##
 
@@ -192,10 +192,10 @@ install:: build _installhdrs
 #ifneq ($(SubProjects),)
 #	make recurse TARGET=$@ RC_ARCHS="$(RC_ARCHS)"
 #endif
-	$(INSTALL_DIRECTORY) $(DSTROOT)/$(Install_Dir)
+	$(INSTALL_DIRECTORY) $(Install_Dir)
 ifneq ($(strip $(ALL_OFILES)),)
  ifeq ($(ProductType),tool)
-	$(INSTALL_PROGRAM) $(SYMROOT)/$(ProductName) $(DSTROOT)/$(Install_Dir)
+	$(INSTALL_PROGRAM) $(SYMROOT)/$(ProductName) $(Install_Dir)
  else
   ifeq ($(ProductType),dylib)
 	@$(foreach STYLE, $(BUILD_STYLES), \
@@ -341,7 +341,7 @@ install-man-pages::
 	@echo "Installing man pages for $(Project)..."
 	@for MANPAGE in $(MANPAGES); do \
 		SECTION=$${MANPAGE/*./} ; \
-		MANDIR=$(DSTROOT)/usr/share/man/man$${SECTION} ; \
+		MANDIR=/usr/local/share/man/man$${SECTION} ; \
 		$(INSTALL_DIRECTORY) $${MANDIR} || exit 1 ; \
 		CMD="$(INSTALL_FILE) $${MANPAGE} $${MANDIR}" ; \
 		echo $$CMD ; $$CMD || exit 1 ; \
@@ -350,7 +350,7 @@ install-man-pages::
 install-launchd-plists::
 	@echo "Installing launchd plists for $(Project)..."
 	@for PLIST in $(LAUNCHD_PLISTS); do \
-		PLIST_DIR=$(DSTROOT)/System/Library/LaunchDaemons ; \
+		PLIST_DIR=/usr/local/Library/LaunchDaemons ; \
 		$(INSTALL_DIRECTORY) $${PLIST_DIR} || exit 1 ; \
 		CMD="$(INSTALL_FILE) $${PLIST} $${PLIST_DIR}" ; \
 		echo $$CMD ; $$CMD || exit 1 ; \

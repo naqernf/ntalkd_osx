@@ -1,8 +1,8 @@
 Project = ntalkd
-Install_Dir = /usr/libexec
+Install_Dir = /usr/local/libexec
 
 HFILES = talkd.h
-CFILES = announce.c print.c process.c table.c talkd.c ../wall.tproj/ttymsg.c
+CFILES = announce.c print.c process.c table.c talkd.c deps/wall.tproj/ttymsg.c
 MANPAGES = ntalkd.8
 LAUNCHD_PLISTS =  ntalk.plist
 
@@ -11,4 +11,5 @@ Extra_LD_Flags = -dead_strip -pie
 
 Extra_CC_Flags += -D__FBSDID=__RCSID
 
-include $(MAKEFILEPATH)/CoreOS/ReleaseControl/BSDCommon.make
+
+include deps/BSDCommon.make
