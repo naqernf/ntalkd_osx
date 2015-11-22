@@ -94,8 +94,8 @@ main(int argc, char *argv[])
 	/*
 	 * removed so ntalkd can run in tty sandbox
 	 */
-	if (getuid())
-		errx(1, "getuid: not super-user");
+	// if (getuid())
+	// 	errx(1, "getuid: not super-user");
 
 	openlog("talkd", LOG_PID, LOG_DAEMON);
 	if (gethostname(hostname, sizeof(hostname) - 1) < 0) {

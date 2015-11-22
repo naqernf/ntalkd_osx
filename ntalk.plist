@@ -8,7 +8,7 @@
 	<string>com.apple.ntalkd</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/libexec/ntalkd</string>
+		<string>/usr/local/libexec/ntalkd</string>
 	</array>
 	<key>inetdCompatibility</key>
 	<dict>
